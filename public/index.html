@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音楽ジャンル分類アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>音楽ジャンル分類</h1>
+            <p>MP3ファイルをアップロードして、音楽のジャンルを分析します</p>
+        </header>
+        
+        <main>
+            <section class="upload-section">
+                <div class="upload-container" id="drop-area">
+                    <input type="file" id="fileInput" accept=".mp3" hidden>
+                    <div class="upload-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64">
+                            <path fill="none" d="M0 0h24v24H0z"/>
+                            <path d="M9 16h6v-6h4l-7-7-7 7h4v6zm-4 2h14v2H5v-2z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <p>クリックまたはドラッグ＆ドロップでMP3ファイルを選択</p>
+                    <button id="upload-btn">ファイルを選択</button>
+                </div>
+                <div class="progress-container" id="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress" id="progress-bar"></div>
+                    </div>
+                    <p id="progress-text">アップロード中... 0%</p>
+                </div>
+            </section>
+
+            <section class="result-section" id="result-section">
+                <h2>分析結果</h2>
+                <div id="analysis-loading" class="analysis-loading">
+                    <div class="spinner"></div>
+                    <p>音楽を分析中...</p>
+                </div>
+                <div id="result-container" class="result-container">
+                    <!-- 結果はここに表示されます -->
+                </div>
+            </section>
+            
+            <section class="history-section">
+                <h2>履歴</h2>
+                <div class="history-container" id="history-container">
+                    <!-- 履歴はここに表示されます -->
+                    <p id="no-history-message">履歴がありません</p>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 音楽ジャンル分類アプリ</p>
+        </footer>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
