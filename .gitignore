@@ -1,0 +1,34 @@
+# Node.js dependencies
+node_modules/
+
+# MongoDB data files
+*.wt
+*.lock
+*.data
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Uploaded files
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Model files
+python/model.pkl
+python/scaler.pkl
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Editor specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables
+.env
