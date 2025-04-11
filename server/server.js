@@ -23,38 +23,45 @@ app.use(express.static(path.join(__dirname, '../public')));
 // Mongooseの警告を抑制
 mongoose.set('strictQuery', true);
 
-// MongoDB Memory Server の設定と接続
-const { MongoMemoryServer } = require('mongodb-memory-server');
-
-// MongoDB Memory Serverを起動する非同期関数
-async function startServer() {
-    // MongoDB Memory Serverインスタンスの作成
-    const mongoServer = await MongoMemoryServer.create();
-    const mongoUri = mongoServer.getUri();
+// 簡易的なメモリ内データストアを作成（MongoDB代替用）
+const memoryStore = {
+    analyses: new Map(),
     
-    console.log(`MongoDB Memory Server が起動しました: ${mongoUri}`);
+    async save(analysisId, data) {
+        this.analyses.set(analysisId, data);
+        console.log(`分析データを保存しました: ${analysisId}`);
+        return data;
+    },
     
-    try {
-        // Mongooseで接続
-        await mongoose.connect(mongoUri, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
-        console.log('MongoDB Memory Server に接続しました');
+    async findOne(query) {
+        if (query.analysisId) {
+            return this.analyses.get(query.analysisId) || null;
+        }
+        return null;
+    },
+    
+    async findOneAndUpdate(query, update, options) {
+        const existingData = this.analyses.get(query.analysisId) || {};
+        const updatedData = { ...existingData, ...update };
+        this.analyses.set(query.analysisId, updatedData);
+        console.log(`分析データを更新しました: ${query.analysisId}`);
         
-        // アプリケーションサーバーの設定と起動
-        setupAppServer();
-    } catch (err) {
-        console.error('MongoDB 接続エラー:', err);
-        process.exit(1); // エラーコードで終了
+        // MongoDBのようにexecメソッドを持つオブジェクトを返す
+        return {
+            exec: function() {
+                return Promise.resolve(updatedData);
+            }
+        };
     }
-}
+};
 
-// MongoDBサーバーを起動
-startServer().catch(err => {
-    console.error('MongoDBサーバー起動エラー:', err);
-    process.exit(1);
-});
+console.log('メモリ内データストアを初期化しました');
+
+// サーバーを即時起動
+setupAppServer();
+
+// モジュールとしてエクスポート（他のファイルから require したときのため）
+module.exports = app;
 
 // Analysisスキーマの定義
 const analysisSchema = new mongoose.Schema({
@@ -187,14 +194,14 @@ app.post('/api/upload', upload.single('audioFile'), async (req, res) => {
         const analysisId = uuidv4();
         
         // 分析レコードを作成
-        const newAnalysis = new Analysis({
+        const newAnalysis = {
             analysisId: analysisId,
             fileName: req.file.originalname,
             filePath: req.file.path,
             status: 'pending'
-        });
+        };
         
-        await newAnalysis.save();
+        await memoryStore.save(analysisId, newAnalysis);
 
         // 分析プロセスを開始
         startAnalysisProcess(analysisId, req.file.path);
@@ -215,7 +222,7 @@ app.post('/api/upload', upload.single('audioFile'), async (req, res) => {
 app.get('/api/analysis/:analysisId/status', async (req, res) => {
     try {
         const analysisId = req.params.analysisId;
-        const analysis = await Analysis.findOne({ analysisId: analysisId });
+        const analysis = await memoryStore.findOne({ analysisId: analysisId });
         
         if (!analysis) {
             return res.status(404).json({ error: '分析が見つかりません' });
@@ -237,7 +244,7 @@ app.get('/api/analysis/:analysisId/status', async (req, res) => {
 app.get('/api/analysis/:analysisId/result', async (req, res) => {
     try {
         const analysisId = req.params.analysisId;
-        const analysis = await Analysis.findOne({ analysisId: analysisId });
+        const analysis = await memoryStore.findOne({ analysisId: analysisId });
         
         if (!analysis) {
             return res.status(404).json({ error: '分析が見つかりません' });
@@ -282,13 +289,12 @@ async function deleteUploadedFile(filePath) {
 }
 
 // 分析プロセスの開始
-function startAnalysisProcess(analysisId, filePath) {
+async function startAnalysisProcess(analysisId, filePath) {
     // 分析ステータスを更新
-    Analysis.findOneAndUpdate(
+    await memoryStore.findOneAndUpdate(
         { analysisId: analysisId },
-        { status: 'processing' },
-        { new: true } // 更新後のドキュメントを返す
-    ).exec();
+        { status: 'processing' }
+    );
 
     // Pythonスクリプトを実行
     const pythonScript = path.join(__dirname, '../python/genre_classifier.py');
@@ -321,21 +327,27 @@ function startAnalysisProcess(analysisId, filePath) {
                 const analysisData = result.genres.analysis || {};
                 console.log('受信した分析データのキー:', Object.keys(analysisData));
                 
+                // 分析データをより詳細にログ出力
+                fs.writeFileSync(
+                    path.join(__dirname, '../analysis_data.txt'),
+                    JSON.stringify(analysisData, null, 2)
+                );
+                
                 // 保存する前にデータの整形と検証
                 const processedAnalysis = processAnalysisData(analysisData);
                 
                 // 分析結果を保存
-                await Analysis.findOneAndUpdate(
+                await memoryStore.findOneAndUpdate(
                     { analysisId: analysisId },
                     {
                         status: 'completed',
                         genres: result.genres.genres || result.genres,
                         waveform: result.genres.waveform,
-                        analysis: processedAnalysis,
-                        description: result.genres.description
-                    },
-                    { new: true } // 更新後のドキュメントを返す
-                ).exec();
+                        analysis: result.genres.analysis,
+                        description: result.genres.description,
+                        timestamp: new Date()
+                    }
+                );
                 
                 // 分析が完了したらアップロードされたファイルを削除
                 await deleteUploadedFile(filePath);
@@ -376,14 +388,13 @@ function startAnalysisProcess(analysisId, filePath) {
 // 分析失敗時の状態更新
 async function updateAnalysisFailed(analysisId, errorMessage) {
     try {
-        const analysis = await Analysis.findOneAndUpdate(
+        const analysis = await memoryStore.findOneAndUpdate(
             { analysisId: analysisId },
             {
                 status: 'failed',
                 error: errorMessage
-            },
-            { new: true } // 更新後のドキュメントを返す
-        ).exec();
+            }
+        );
         
         // 分析が失敗した場合もファイルを削除
         if (analysis && analysis.filePath) {
@@ -416,13 +427,20 @@ function processAnalysisData(data) {
         'sections', 'chorus_likelihood'
     ];
     
+    // Python側からのデータキーを確認するログ出力
+    console.log('処理中の分析データのキー一覧:', Object.keys(data));
+    
     numericFields.forEach(field => {
         if (field in data) {
             // NaNやnullの場合は除外
             const value = parseFloat(data[field]);
             if (!isNaN(value) && value !== null) {
                 processedData[field] = value;
+            } else {
+                console.log(`数値変換に失敗したフィールド: ${field}, 値: ${data[field]}`);
             }
+        } else {
+            processedData[field] = null; // 不明な値を明示的にnullとして保存する
         }
     });
     
@@ -431,6 +449,8 @@ function processAnalysisData(data) {
     stringFields.forEach(field => {
         if (field in data && data[field]) {
             processedData[field] = String(data[field]);
+        } else {
+            processedData[field] = null; // 不明な値を明示的にnullとして保存する
         }
     });
     
@@ -438,6 +458,23 @@ function processAnalysisData(data) {
     if (data.instruments && typeof data.instruments === 'object') {
         processedData.instruments = { ...data.instruments };
     }
+    
+    // Python分析結果全体をデータベースに保存するように変更
+    // Pythonからのオリジナルデータをそのまま保持するが、型変換のみ行う
+    Object.keys(data).forEach(key => {
+        if (!processedData.hasOwnProperty(key)) {
+            const value = data[key];
+            if (typeof value === 'number') {
+                processedData[key] = value;
+            } else if (value && typeof value === 'string' && !isNaN(parseFloat(value))) {
+                processedData[key] = parseFloat(value);
+            } else if (value && typeof value === 'string') {
+                processedData[key] = value;
+            } else if (typeof value === 'object' && value !== null) {
+                processedData[key] = value;
+            }
+        }
+    });
     
     return processedData;
 }

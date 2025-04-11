@@ -1132,3 +1132,728 @@ features before flatten: (31,)
 features after flatten: (31,)
 features_scaled shape: (1, 31)
 Script completed successfully
+Script started at 2025-04-11 14:46:13.932337
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/6940bbe0-23b8-43e1-b38e-667789571dde-kimigayo01.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/6940bbe0-23b8-43e1-b38e-667789571dde-kimigayo01.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [143.5546875]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 1303.0452382897306
+bandwidth: 1438.8198236289861
+rolloff: 2331.777566726732
+zero_crossing: 0.07099541348200464
+tempo: 143.5546875
+rms: 0.07674941420555115
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 15:16:54.500215
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/3a150b96-60b4-4ff9-a59e-d5248bc18e2e-Get Down Low in Himaka-jima.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/3a150b96-60b4-4ff9-a59e-d5248bc18e2e-Get Down Low in Himaka-jima.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [95.703125]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2172.53613476836
+bandwidth: 2703.7752400313134
+rolloff: 5251.868242671246
+zero_crossing: 0.06312055558243033
+tempo: 95.703125
+rms: 0.13778938353061676
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+Error analyzing audio: list assignment index out of range
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 15:34:20.450394
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/d336b853-7aa0-4286-8e13-14d04422e8e7-Get Down Low in Himaka-jima.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/d336b853-7aa0-4286-8e13-14d04422e8e7-Get Down Low in Himaka-jima.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [95.703125]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2172.53613476836
+bandwidth: 2703.7752400313134
+rolloff: 5251.868242671246
+zero_crossing: 0.06312055558243033
+tempo: 95.703125
+rms: 0.13778938353061676
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+Error analyzing audio: list assignment index out of range
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 16:27:02.574280
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/033bd57c-ee44-434d-b055-1e425ef545fd-Ishiguro Nanako in Tokorozawa.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/033bd57c-ee44-434d-b055-1e425ef545fd-Ishiguro Nanako in Tokorozawa.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [123.046875]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2217.09883846995
+bandwidth: 2427.9772541493035
+rolloff: 4630.955330580012
+zero_crossing: 0.08333812040441177
+tempo: 123.046875
+rms: 0.10227680206298828
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+Error analyzing audio: list assignment index out of range
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 17:00:34.905685
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/7ea8416e-1a74-4867-8d3f-21d09877d770-Get Down Low in Himaka-jima.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/7ea8416e-1a74-4867-8d3f-21d09877d770-Get Down Low in Himaka-jima.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [95.703125]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2172.53613476836
+bandwidth: 2703.7752400313134
+rolloff: 5251.868242671246
+zero_crossing: 0.06312055558243033
+tempo: 95.703125
+rms: 0.13778938353061676
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+Error analyzing audio: list assignment index out of range
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 17:13:48.656391
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/f490404f-8b11-4c9c-a3c7-0d5105cbb387-Unnatural Attraction.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/f490404f-8b11-4c9c-a3c7-0d5105cbb387-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2266.0545736694085
+bandwidth: 2482.5553299331036
+rolloff: 4878.12883595564
+zero_crossing: 0.07883625798181114
+tempo: 112.34714673913044
+rms: 0.07668489217758179
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+Error analyzing audio: list assignment index out of range
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 17:16:00.861758
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/a50957ba-ced7-45c6-8158-3f0ed8f12d2a-kimigayo01.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/a50957ba-ced7-45c6-8158-3f0ed8f12d2a-kimigayo01.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [143.5546875]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 1303.0452382897306
+bandwidth: 1438.8198236289861
+rolloff: 2331.777566726732
+zero_crossing: 0.07099541348200464
+tempo: 143.5546875
+rms: 0.07674941420555115
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+Error analyzing audio: list assignment index out of range
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 17:17:04.284514
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/3d11e303-1d0f-4f0d-9013-edf8df43e201-Get Down Low in Himaka-jima.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/3d11e303-1d0f-4f0d-9013-edf8df43e201-Get Down Low in Himaka-jima.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [95.703125]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2172.53613476836
+bandwidth: 2703.7752400313134
+rolloff: 5251.868242671246
+zero_crossing: 0.06312055558243033
+tempo: 95.703125
+rms: 0.13778938353061676
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+Error analyzing audio: list assignment index out of range
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 17:29:33.426841
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/e80ce359-58ad-4161-b190-7d70269183e7-Unnatural Attraction.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/e80ce359-58ad-4161-b190-7d70269183e7-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2266.0545736694085
+bandwidth: 2482.5553299331036
+rolloff: 4878.12883595564
+zero_crossing: 0.07883625798181114
+tempo: 112.34714673913044
+rms: 0.07668489217758179
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+Error calculating spectral features: list assignment index out of range
+Error calculating rhythm features: peak_pick() takes 1 positional argument but 7 were given
+Error calculating instrument detection: local variable 'percussive' referenced before assignment
+Error calculating advanced features: list assignment index out of range
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 17:31:19.390747
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/6375960d-0bd1-4cf0-ab2e-1610c38d0685-kimigayo01.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/6375960d-0bd1-4cf0-ab2e-1610c38d0685-kimigayo01.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [143.5546875]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 1303.0452382897306
+bandwidth: 1438.8198236289861
+rolloff: 2331.777566726732
+zero_crossing: 0.07099541348200464
+tempo: 143.5546875
+rms: 0.07674941420555115
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+Error calculating spectral features: list assignment index out of range
+Error calculating rhythm features: peak_pick() takes 1 positional argument but 7 were given
+Error calculating instrument detection: local variable 'percussive' referenced before assignment
+Error calculating advanced features: list assignment index out of range
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 17:32:57.121146
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/84e52f30-c1df-4f5c-97cf-b6066bd763c7-Unnatural Attraction.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/84e52f30-c1df-4f5c-97cf-b6066bd763c7-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2266.0545736694085
+bandwidth: 2482.5553299331036
+rolloff: 4878.12883595564
+zero_crossing: 0.07883625798181114
+tempo: 112.34714673913044
+rms: 0.07668489217758179
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+Error calculating spectral features: list assignment index out of range
+Error calculating rhythm features: peak_pick() takes 1 positional argument but 7 were given
+Error calculating instrument detection: local variable 'percussive' referenced before assignment
+Error calculating advanced features: list assignment index out of range
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 17:33:24.044733
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/f3e54578-1913-4b5b-b6ef-39306d52b007-Get Down Low in Himaka-jima.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/f3e54578-1913-4b5b-b6ef-39306d52b007-Get Down Low in Himaka-jima.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [95.703125]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2172.53613476836
+bandwidth: 2703.7752400313134
+rolloff: 5251.868242671246
+zero_crossing: 0.06312055558243033
+tempo: 95.703125
+rms: 0.13778938353061676
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+Error calculating spectral features: list assignment index out of range
+Error calculating rhythm features: peak_pick() takes 1 positional argument but 7 were given
+Error calculating instrument detection: local variable 'percussive' referenced before assignment
+Error calculating advanced features: list assignment index out of range
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 17:41:47.620339
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/0cd80653-bc69-422e-b397-e576225f7f36-Unnatural Attraction.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/0cd80653-bc69-422e-b397-e576225f7f36-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2266.0545736694085
+bandwidth: 2482.5553299331036
+rolloff: 4878.12883595564
+zero_crossing: 0.07883625798181114
+tempo: 112.34714673913044
+rms: 0.07668489217758179
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+Error calculating spectral features: list assignment index out of range
+Error calculating rhythm features: peak_pick() takes 1 positional argument but 7 were given
+Error calculating instrument detection: local variable 'percussive' referenced before assignment
+Error calculating advanced features: list assignment index out of range
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 17:42:51.342380
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/7b51ff5c-5802-4a1d-a829-1b1cbdeacc04-Ishiguro Nanako in Tokorozawa.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/7b51ff5c-5802-4a1d-a829-1b1cbdeacc04-Ishiguro Nanako in Tokorozawa.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [123.046875]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2217.09883846995
+bandwidth: 2427.9772541493035
+rolloff: 4630.955330580012
+zero_crossing: 0.08333812040441177
+tempo: 123.046875
+rms: 0.10227680206298828
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+Error calculating spectral features: list assignment index out of range
+Error calculating rhythm features: peak_pick() takes 1 positional argument but 7 were given
+Error calculating instrument detection: local variable 'percussive' referenced before assignment
+Error calculating advanced features: list assignment index out of range
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 17:43:51.774552
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/3e1a3711-682f-430b-9711-fcf5f1b48c79-kimigayo01.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/3e1a3711-682f-430b-9711-fcf5f1b48c79-kimigayo01.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [143.5546875]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 1303.0452382897306
+bandwidth: 1438.8198236289861
+rolloff: 2331.777566726732
+zero_crossing: 0.07099541348200464
+tempo: 143.5546875
+rms: 0.07674941420555115
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+Error calculating spectral features: list assignment index out of range
+Error calculating rhythm features: peak_pick() takes 1 positional argument but 7 were given
+Error calculating instrument detection: local variable 'percussive' referenced before assignment
+Error calculating advanced features: list assignment index out of range
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
