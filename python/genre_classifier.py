@@ -7,7 +7,40 @@ import json
 import random
 import time
 import base64
+import numpy as np
 from datetime import datetime
+
+# NumPy型をJSON互換の型に変換するヘルパー関数
+def numpy_to_python_type(obj):
+    """
+    NumPy型をJSON互換のPython標準型に変換する
+    
+    Parameters:
+    -----------
+    obj : any
+        変換する対象のオブジェクト
+        
+    Returns:
+    --------
+    Python標準型に変換されたオブジェクト
+    """
+    if isinstance(obj, np.ndarray):
+        return obj.tolist()  # NumPy配列をリストに変換
+    elif isinstance(obj, (np.int_, np.intc, np.intp, np.int8, np.int16, np.int32, np.int64, 
+                         np.uint8, np.uint16, np.uint32, np.uint64)):
+        return int(obj)  # NumPy整数型をPython intに変換
+    elif isinstance(obj, (np.float_, np.float16, np.float32, np.float64)):
+        return float(obj)  # NumPy浮動小数点型をPython floatに変換
+    elif isinstance(obj, (np.bool_)):
+        return bool(obj)  # NumPy真偽型をPython boolに変換
+    elif isinstance(obj, (np.complex_, np.complex64, np.complex128)):
+        return {'real': obj.real, 'imag': obj.imag}  # 複素数を辞書に変換
+    elif isinstance(obj, dict):
+        return {k: numpy_to_python_type(v) for k, v in obj.items()}  # 辞書内の各値を再帰的に変換
+    elif isinstance(obj, list):
+        return [numpy_to_python_type(item) for item in obj]  # リスト内の各値を再帰的に変換
+    else:
+        return obj  # その他の型はそのまま返す
 
 # デバッグ用ユーティリティ
 def debug_print(message):
@@ -760,6 +793,9 @@ def main():
             "analysisId": analysis_id,
             "genres": genres
         }
+        
+        # NumPy型をPython標準型に変換
+        result = numpy_to_python_type(result)
         
         # バッファをフラッシュして、出力の混在を防ぐ
         sys.stderr.flush()
