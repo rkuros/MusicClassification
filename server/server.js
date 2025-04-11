@@ -266,28 +266,45 @@ function startAnalysisProcess(analysisId, filePath) {
     
     const pythonProcess = spawn('python3', [pythonScript, filePath, analysisId]);
     
+    // Pythonからの出力を蓄積するバッファ
+    let stdoutBuffer = '';
+    
     // 標準出力からの結果取得
-    pythonProcess.stdout.on('data', async (data) => {
+    pythonProcess.stdout.on('data', (data) => {
+        // バッファにデータを追加
+        stdoutBuffer += data.toString();
+    });
+    
+    // プロセス終了時に完全な出力を処理
+    pythonProcess.on('close', async (code) => {
         try {
-            const result = JSON.parse(data.toString());
-            
-            // 分析結果を保存
-            await Analysis.findOneAndUpdate(
-                { analysisId: analysisId },
-                {
-                    status: 'completed',
-                    genres: result.genres.genres || result.genres,
-                    waveform: result.genres.waveform,
-                    analysis: result.genres.analysis,
-                    description: result.genres.description
-                },
-                { new: true } // 更新後のドキュメントを返す
-            ).exec();
-            
-            // 分析が完了したらアップロードされたファイルを削除
-            await deleteUploadedFile(filePath);
+            if (code === 0 && stdoutBuffer) {
+                // 完全な出力が揃ったところでJSON解析を実行
+                const result = JSON.parse(stdoutBuffer);
+                
+                // 分析結果を保存
+                await Analysis.findOneAndUpdate(
+                    { analysisId: analysisId },
+                    {
+                        status: 'completed',
+                        genres: result.genres.genres || result.genres,
+                        waveform: result.genres.waveform,
+                        analysis: result.genres.analysis,
+                        description: result.genres.description
+                    },
+                    { new: true } // 更新後のドキュメントを返す
+                ).exec();
+                
+                // 分析が完了したらアップロードされたファイルを削除
+                await deleteUploadedFile(filePath);
+                console.log(`分析完了: ${analysisId}`);
+            } else if (code !== 0) {
+                console.error(`Pythonプロセスが異常終了しました。終了コード: ${code}`);
+                updateAnalysisFailed(analysisId, `Pythonプロセスが異常終了しました（コード: ${code}）`);
+            }
         } catch (error) {
             console.error('Pythonスクリプトの出力解析エラー:', error);
+            console.error('受信したデータ（一部）:', stdoutBuffer.substring(0, 200) + '...');
             updateAnalysisFailed(analysisId, 'Pythonスクリプトの出力解析に失敗しました');
         }
     });
@@ -303,13 +320,7 @@ function startAnalysisProcess(analysisId, filePath) {
         }
     });
     
-    // プロセス終了時の処理
-    pythonProcess.on('close', (code) => {
-        if (code !== 0) {
-            console.error(`Pythonプロセスが異常終了しました。終了コード: ${code}`);
-            updateAnalysisFailed(analysisId, `Pythonプロセスが異常終了しました（コード: ${code}）`);
-        }
-    });
+    // 削除: 重複したcloseイベントハンドラ（上で定義済み）
     
     // 削除：内側のファイル削除関数は削除（外側のグローバル関数を使用）
     

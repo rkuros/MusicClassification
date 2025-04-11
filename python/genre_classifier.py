@@ -26,15 +26,15 @@ def numpy_to_python_type(obj):
     """
     if isinstance(obj, np.ndarray):
         return obj.tolist()  # NumPy配列をリストに変換
-    elif isinstance(obj, (np.int_, np.intc, np.intp, np.int8, np.int16, np.int32, np.int64, 
+    elif isinstance(obj, (np.intc, np.intp, np.int8, np.int16, np.int32, np.int64, 
                          np.uint8, np.uint16, np.uint32, np.uint64)):
         return int(obj)  # NumPy整数型をPython intに変換
-    elif isinstance(obj, (np.float_, np.float16, np.float32, np.float64)):
+    elif isinstance(obj, (np.float16, np.float32, np.float64)):
         return float(obj)  # NumPy浮動小数点型をPython floatに変換
-    elif isinstance(obj, (np.bool_)):
+    elif isinstance(obj, np.bool_):
         return bool(obj)  # NumPy真偽型をPython boolに変換
-    elif isinstance(obj, (np.complex_, np.complex64, np.complex128)):
-        return {'real': obj.real, 'imag': obj.imag}  # 複素数を辞書に変換
+    elif isinstance(obj, (np.complex64, np.complex128)):
+        return {'real': float(obj.real), 'imag': float(obj.imag)}  # 複素数を辞書に変換
     elif isinstance(obj, dict):
         return {k: numpy_to_python_type(v) for k, v in obj.items()}  # 辞書内の各値を再帰的に変換
     elif isinstance(obj, list):
@@ -480,7 +480,11 @@ if not USE_MOCK:
         try:
             # テンポ（BPM）推定
             tempo, _ = librosa.beat.beat_track(y=y, sr=sr)
-            tempo = float(tempo)
+            # NumPy 2.0互換: 配列から要素を取り出してからfloatに変換
+            if hasattr(tempo, '__len__') and len(tempo) > 0:
+                tempo = float(tempo[0])
+            else:
+                tempo = float(tempo)
             
             # キー推定
             chroma = librosa.feature.chroma_cqt(y=y, sr=sr)
