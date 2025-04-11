@@ -117,6 +117,9 @@ function handleFileUpload(file) {
     progressBar.style.width = '0%';
     progressText.textContent = 'アップロード中... 0%';
     
+    // 前回の解析結果をすべて非表示にする
+    clearPreviousResults();
+    
     // FormDataの作成
     const formData = new FormData();
     formData.append('audioFile', file);
@@ -140,7 +143,6 @@ function handleFileUpload(file) {
             progressText.textContent = 'アップロード完了！分析中...';
             resultSection.style.display = 'block';
             analysisLoading.style.display = 'flex';
-            resultContainer.style.display = 'none';
             
             // 分析結果の取得
             const response = JSON.parse(xhr.responseText);
@@ -167,8 +169,19 @@ function handleFileUpload(file) {
     xhr.send(formData);
 }
 
+// 前回の解析結果をクリアする関数
+function clearPreviousResults() {
+    resultContainer.style.display = 'none';
+    waveformContainer.style.display = 'none';
+    analysisDetails.style.display = 'none';
+    analysisDescription.style.display = 'none';
+}
+
 // 分析状態の確認
 function checkAnalysisStatus(analysisId) {
+    // 前回の結果が表示されないようにする
+    clearPreviousResults();
+    
     fetch(`/api/analysis/${analysisId}/status`)
         .then(response => {
             if (!response.ok) {
