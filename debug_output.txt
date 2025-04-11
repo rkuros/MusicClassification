@@ -1,0 +1,43 @@
+DEBUG: Script started at 2025-04-11 11:49:56.480660
+DEBUG: Importing libraries...
+DEBUG: NumPy imported successfully, version: 2.0.2
+DEBUG: Librosa imported successfully, version: 0.11.0
+DEBUG: All required libraries successfully imported.
+必要なライブラリがインストールされています。本格的な分析モードで実行します
+DEBUG: Script execution started
+DEBUG: Starting main function
+DEBUG: Brief pause for user experience
+DEBUG: Using full analysis mode
+DEBUG: Starting feature extraction for file: Unnatural Attraction.mp3
+DEBUG: Loading audio file...
+DEBUG: Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+DEBUG: Starting feature extraction calculations...
+DEBUG: Extracting MFCC...
+DEBUG: MFCC shape: (13,), type: <class 'numpy.ndarray'>
+DEBUG: Extracting chroma features...
+DEBUG: Chroma shape: (12,), type: <class 'numpy.ndarray'>
+DEBUG: Extracting spectral features...
+DEBUG: Estimating tempo...
+DEBUG: Estimated tempo: [112.34714674]
+DEBUG: Calculating RMS energy...
+DEBUG: Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+DEBUG: NumPy version: 2.0.2
+DEBUG: Original mfcc shape: (13,)
+DEBUG: Original chroma shape: (12,)
+DEBUG: centroid: 2266.0545736694085
+DEBUG: bandwidth: 2482.5553299331036
+DEBUG: rolloff: 4878.12883595564
+DEBUG: zero_crossing: 0.07883625798181114
+DEBUG: tempo: 112.34714673913044
+DEBUG: rms: 0.07668489217758179
+DEBUG: mfcc shape (after flatten): (13,)
+DEBUG: chroma shape (after flatten): (12,)
+DEBUG: other_features shape: (6,)
+DEBUG: other_features data type: float64
+DEBUG: features shape after concatenate: (31,)
+DEBUG: features dtype: float64
+DEBUG: features before flatten: (31,)
+DEBUG: features after flatten: (31,)
+DEBUG: features_scaled shape: (1, 31)
+DEBUG: Script completed successfully

@@ -1,0 +1,1134 @@
+Script started at 2025-04-11 11:35:24.571665
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Starting feature extraction for file: Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Script completed successfully
+Script started at 2025-04-11 11:36:17.241647
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Starting feature extraction for file: Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Script completed successfully
+Script started at 2025-04-11 11:36:38.483745
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Starting feature extraction for file: Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Script completed successfully
+Script started at 2025-04-11 11:37:48.953622
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Starting feature extraction for file: Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Script completed successfully
+Script started at 2025-04-11 11:38:45.273804
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/a8ef6f4c-1b54-4700-8867-5e7bc5e1ed5c-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Script completed successfully
+Script started at 2025-04-11 11:40:28.555271
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/01d5c8f4-85af-410d-afec-2adcb542cbbf-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Script completed successfully
+Script started at 2025-04-11 11:42:36.495323
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Starting feature extraction for file: Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Script completed successfully
+Script started at 2025-04-11 11:42:59.205620
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Starting feature extraction for file: Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Script completed successfully
+Script started at 2025-04-11 11:43:47.092877
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/c9a20126-eb1b-4035-93f9-5c341e432d4b-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Script completed successfully
+Script started at 2025-04-11 11:49:56.480660
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Starting feature extraction for file: Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2266.0545736694085
+bandwidth: 2482.5553299331036
+rolloff: 4878.12883595564
+zero_crossing: 0.07883625798181114
+tempo: 112.34714673913044
+rms: 0.07668489217758179
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 11:53:26.465606
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/689838fd-3e77-4187-8f39-9924246bf59d-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2266.0545736694085
+bandwidth: 2482.5553299331036
+rolloff: 4878.12883595564
+zero_crossing: 0.07883625798181114
+tempo: 112.34714673913044
+rms: 0.07668489217758179
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 11:58:20.512914
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/2342f418-0ba1-4111-b2b4-9d223193ff1b-7a1e46e8-4bc0-4899-99f6-0b16d502c9b5-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2266.0545736694085
+bandwidth: 2482.5553299331036
+rolloff: 4878.12883595564
+zero_crossing: 0.07883625798181114
+tempo: 112.34714673913044
+rms: 0.07668489217758179
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 11:58:53.811096
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/8595c835-8f0f-42a3-bee9-2c6ffc5b5168-689838fd-3e77-4187-8f39-9924246bf59d-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2266.0545736694085
+bandwidth: 2482.5553299331036
+rolloff: 4878.12883595564
+zero_crossing: 0.07883625798181114
+tempo: 112.34714673913044
+rms: 0.07668489217758179
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 11:59:38.643006
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/17b29360-5e68-4489-9dbd-e6a5a0bad106-532bc48b-9a4a-42e7-9ece-8ee39cd284aa-Get Down Low.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [103.359375]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2361.8353335643073
+bandwidth: 2701.984942648346
+rolloff: 5480.966857343266
+zero_crossing: 0.0788744285748839
+tempo: 103.359375
+rms: 0.13076385855674744
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 12:04:34.441472
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/56ab3183-cd2b-4c31-8b80-b947de45de43-Ishiguro Nanako in Tokorozawa.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [123.046875]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2217.09883846995
+bandwidth: 2427.9772541493035
+rolloff: 4630.955330580012
+zero_crossing: 0.08333812040441177
+tempo: 123.046875
+rms: 0.10227680206298828
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 12:14:01.370213
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/9285fbd6-2db9-44b4-858a-5aada3ba8682-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2266.0545736694085
+bandwidth: 2482.5553299331036
+rolloff: 4878.12883595564
+zero_crossing: 0.07883625798181114
+tempo: 112.34714673913044
+rms: 0.07668489217758179
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 12:39:46.901136
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/d4b5a5f4-b266-4681-b931-54effb9f4ec6-Unnatural Attraction.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/d4b5a5f4-b266-4681-b931-54effb9f4ec6-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2266.0545736694085
+bandwidth: 2482.5553299331036
+rolloff: 4878.12883595564
+zero_crossing: 0.07883625798181114
+tempo: 112.34714673913044
+rms: 0.07668489217758179
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script started at 2025-04-11 12:46:11.207274
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/7a3641a5-2e85-47a4-b107-9a55aec94396-Ishiguro Nanako in Tokorozawa.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/7a3641a5-2e85-47a4-b107-9a55aec94396-Ishiguro Nanako in Tokorozawa.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [123.046875]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2217.09883846995
+bandwidth: 2427.9772541493035
+rolloff: 4630.955330580012
+zero_crossing: 0.08333812040441177
+tempo: 123.046875
+rms: 0.10227680206298828
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script started at 2025-04-11 12:51:50.303322
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/0a4a119a-f909-4107-b36a-58db98bc50b7-Unnatural Attraction.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/0a4a119a-f909-4107-b36a-58db98bc50b7-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2266.0545736694085
+bandwidth: 2482.5553299331036
+rolloff: 4878.12883595564
+zero_crossing: 0.07883625798181114
+tempo: 112.34714673913044
+rms: 0.07668489217758179
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 12:59:30.975700
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/fd7454f1-be91-496b-9782-3dbefd54efe7-Unnatural Attraction.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/fd7454f1-be91-496b-9782-3dbefd54efe7-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2266.0545736694085
+bandwidth: 2482.5553299331036
+rolloff: 4878.12883595564
+zero_crossing: 0.07883625798181114
+tempo: 112.34714673913044
+rms: 0.07668489217758179
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 13:08:04.062121
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/6c01d503-48c7-4345-a028-7aafd0601bf8-Get Down Low.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/6c01d503-48c7-4345-a028-7aafd0601bf8-Get Down Low.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [103.359375]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2361.8353335643073
+bandwidth: 2701.984942648346
+rolloff: 5480.966857343266
+zero_crossing: 0.0788744285748839
+tempo: 103.359375
+rms: 0.13076385855674744
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 13:09:19.035002
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/166fa5dc-5100-41ad-b24c-0f2bd20fcf04-Ishiguro Nanako in Tokorozawa.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/166fa5dc-5100-41ad-b24c-0f2bd20fcf04-Ishiguro Nanako in Tokorozawa.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [123.046875]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2217.09883846995
+bandwidth: 2427.9772541493035
+rolloff: 4630.955330580012
+zero_crossing: 0.08333812040441177
+tempo: 123.046875
+rms: 0.10227680206298828
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 13:40:57.363147
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/92cf6bb3-2b93-4600-8a70-155b6103a554-Unnatural Attraction.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/92cf6bb3-2b93-4600-8a70-155b6103a554-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2266.0545736694085
+bandwidth: 2482.5553299331036
+rolloff: 4878.12883595564
+zero_crossing: 0.07883625798181114
+tempo: 112.34714673913044
+rms: 0.07668489217758179
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 13:50:16.594898
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/562a77bf-e1eb-47f2-a46f-306c1f9ce7e3-Ishiguro Nanako in Tokorozawa.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/562a77bf-e1eb-47f2-a46f-306c1f9ce7e3-Ishiguro Nanako in Tokorozawa.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [123.046875]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2217.09883846995
+bandwidth: 2427.9772541493035
+rolloff: 4630.955330580012
+zero_crossing: 0.08333812040441177
+tempo: 123.046875
+rms: 0.10227680206298828
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 13:56:37.037877
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/ac4b338a-f536-4d23-bcd0-49eaaaf38e1f-Get Down Low in Himaka-jima.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/ac4b338a-f536-4d23-bcd0-49eaaaf38e1f-Get Down Low in Himaka-jima.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [95.703125]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2172.53613476836
+bandwidth: 2703.7752400313134
+rolloff: 5251.868242671246
+zero_crossing: 0.06312055558243033
+tempo: 95.703125
+rms: 0.13778938353061676
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 14:05:20.009422
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/2b123212-a355-49d5-9e4a-66097781ae2d-Unnatural Attraction.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/2b123212-a355-49d5-9e4a-66097781ae2d-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2266.0545736694085
+bandwidth: 2482.5553299331036
+rolloff: 4878.12883595564
+zero_crossing: 0.07883625798181114
+tempo: 112.34714673913044
+rms: 0.07668489217758179
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 14:16:36.248198
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/6818f3db-e5f4-4576-bac9-6cd4de6fdca9-Get Down Low in Himaka-jima.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/6818f3db-e5f4-4576-bac9-6cd4de6fdca9-Get Down Low in Himaka-jima.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [95.703125]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2172.53613476836
+bandwidth: 2703.7752400313134
+rolloff: 5251.868242671246
+zero_crossing: 0.06312055558243033
+tempo: 95.703125
+rms: 0.13778938353061676
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 14:18:06.398123
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/5974dfd3-2ddf-4ca9-99d1-3237e6505843-Unnatural Attraction.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/5974dfd3-2ddf-4ca9-99d1-3237e6505843-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2266.0545736694085
+bandwidth: 2482.5553299331036
+rolloff: 4878.12883595564
+zero_crossing: 0.07883625798181114
+tempo: 112.34714673913044
+rms: 0.07668489217758179
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 14:24:50.017072
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/8306ce9b-a6cf-4f10-adec-5793a2861533-Unnatural Attraction.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/8306ce9b-a6cf-4f10-adec-5793a2861533-Unnatural Attraction.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [112.34714674]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2266.0545736694085
+bandwidth: 2482.5553299331036
+rolloff: 4878.12883595564
+zero_crossing: 0.07883625798181114
+tempo: 112.34714673913044
+rms: 0.07668489217758179
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully
+Script started at 2025-04-11 14:25:05.599149
+Importing libraries...
+NumPy imported successfully, version: 2.0.2
+Librosa imported successfully, version: 0.11.0
+All required libraries successfully imported.
+Script execution started
+Starting main function
+Brief pause for user experience
+Using full analysis mode
+Analyzing file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/275e0851-19bb-4f8a-8b25-2ede7eaa60c8-Get Down Low in Himaka-jima.mp3
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction for file: /Users/rkuros/Documents/Repository/MusicClassification/server/uploads/275e0851-19bb-4f8a-8b25-2ede7eaa60c8-Get Down Low in Himaka-jima.mp3
+Loading audio file...
+Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+Starting feature extraction calculations...
+Extracting MFCC...
+MFCC shape: (13,), type: <class 'numpy.ndarray'>
+Extracting chroma features...
+Chroma shape: (12,), type: <class 'numpy.ndarray'>
+Extracting spectral features...
+Estimating tempo...
+Estimated tempo: [95.703125]
+Calculating RMS energy...
+Python version: 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)]
+NumPy version: 2.0.2
+Original mfcc shape: (13,)
+Original chroma shape: (12,)
+centroid: 2172.53613476836
+bandwidth: 2703.7752400313134
+rolloff: 5251.868242671246
+zero_crossing: 0.06312055558243033
+tempo: 95.703125
+rms: 0.13778938353061676
+mfcc shape (after flatten): (13,)
+chroma shape (after flatten): (12,)
+other_features shape: (6,)
+other_features data type: float64
+features shape after concatenate: (31,)
+features dtype: float64
+Extracting waveform data
+Analyzing audio in detail
+features before flatten: (31,)
+features after flatten: (31,)
+features_scaled shape: (1, 31)
+Script completed successfully

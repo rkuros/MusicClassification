@@ -1,0 +1,1 @@
+{"analysisId": "test-json", "genres": [{"name": "electronic", "confidence": 0.16}, {"name": "classical", "confidence": 0.14}, {"name": "country", "confidence": 0.14}, {"name": "rock", "confidence": 0.12}, {"name": "reggae", "confidence": 0.11}]}

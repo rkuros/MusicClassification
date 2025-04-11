@@ -293,38 +293,145 @@ function displayAnalysisDetails(analysisData) {
     // 分析グリッドの内容を作成
     const gridContainer = analysisDetails.querySelector('.analysis-grid');
     
-    // 基本情報
-    let analysisHTML = `
-        <div class="analysis-item">
-            <div class="label">テンポ (BPM)</div>
-            <div class="value">${analysisData.tempo.toFixed(1)}</div>
-        </div>
-        <div class="analysis-item">
-            <div class="label">キー</div>
-            <div class="value">${analysisData.key}</div>
-        </div>
-        <div class="analysis-item">
-            <div class="label">エネルギー</div>
-            <div class="value">${(analysisData.energy * 100).toFixed(0)}%</div>
-        </div>
-        <div class="analysis-item">
-            <div class="label">ダンス性</div>
-            <div class="value">${(analysisData.danceability * 100).toFixed(0)}%</div>
-        </div>
-        <div class="analysis-item">
-            <div class="label">アコースティック度</div>
-            <div class="value">${(analysisData.acousticness * 100).toFixed(0)}%</div>
-        </div>
-        <div class="analysis-item">
-            <div class="label">セクション数</div>
-            <div class="value">${analysisData.sections}</div>
+    let analysisHTML = '';
+    
+    // カテゴリーヘッダー: 基本音楽情報
+    analysisHTML += `
+        <div class="analysis-category">
+            <h3 class="category-header">基本音楽情報</h3>
+            <div class="category-grid">
+                <div class="analysis-item">
+                    <div class="label">テンポ (BPM)</div>
+                    <div class="value">${analysisData.tempo.toFixed(1)}</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">キー</div>
+                    <div class="value">${analysisData.key}</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">キー確信度</div>
+                    <div class="value">${analysisData.key_confidence ? (analysisData.key_confidence * 100).toFixed(0) + '%' : '不明'}</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">ビート強度</div>
+                    <div class="value">${analysisData.beat_strength ? (analysisData.beat_strength * 100).toFixed(0) + '%' : '不明'}</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">テンポ安定性</div>
+                    <div class="value">${analysisData.tempo_stability ? (analysisData.tempo_stability * 100).toFixed(0) + '%' : '不明'}</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">拍子</div>
+                    <div class="value">${analysisData.time_signature || '不明'}</div>
+                </div>
+            </div>
         </div>
     `;
     
-    // 楽器情報を追加（別セクション）
+    // カテゴリーヘッダー: 音量とダイナミクス
     analysisHTML += `
-        <div class="analysis-item" style="grid-column: 1 / -1;">
-            <div class="label">楽器検出</div>
+        <div class="analysis-category">
+            <h3 class="category-header">音量とダイナミクス</h3>
+            <div class="category-grid">
+                <div class="analysis-item">
+                    <div class="label">エネルギー</div>
+                    <div class="value">${(analysisData.energy * 100).toFixed(0)}%</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">平均音量</div>
+                    <div class="value">${analysisData.mean_volume ? analysisData.mean_volume.toFixed(3) : '不明'}</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">最大音量</div>
+                    <div class="value">${analysisData.max_volume ? analysisData.max_volume.toFixed(3) : '不明'}</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">ダイナミックレンジ</div>
+                    <div class="value">${analysisData.dynamic_range ? (analysisData.dynamic_range * 100).toFixed(0) + '%' : '不明'}</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">音量変化率</div>
+                    <div class="value">${analysisData.volume_change_rate ? (analysisData.volume_change_rate * 100).toFixed(0) + '%' : '不明'}</div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // カテゴリーヘッダー: スペクトル特性
+    analysisHTML += `
+        <div class="analysis-category">
+            <h3 class="category-header">スペクトル特性</h3>
+            <div class="category-grid">
+                <div class="analysis-item">
+                    <div class="label">スペクトル重心 (Hz)</div>
+                    <div class="value">${analysisData.spectral_centroid ? Math.round(analysisData.spectral_centroid) : '不明'}</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">スペクトル帯域幅 (Hz)</div>
+                    <div class="value">${analysisData.spectral_bandwidth ? Math.round(analysisData.spectral_bandwidth) : '不明'}</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">スペクトル平坦度</div>
+                    <div class="value">${analysisData.spectral_flatness ? analysisData.spectral_flatness.toFixed(3) : '不明'}</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">音色の明るさ</div>
+                    <div class="value">${analysisData.brightness ? (analysisData.brightness * 100).toFixed(0) + '%' : '不明'}</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">調和性</div>
+                    <div class="value">${analysisData.harmonicity ? (analysisData.harmonicity * 100).toFixed(0) + '%' : '不明'}</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">音の粗さ</div>
+                    <div class="value">${analysisData.roughness ? (analysisData.roughness * 100).toFixed(0) + '%' : '不明'}</div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // カテゴリーヘッダー: リズムと動き
+    analysisHTML += `
+        <div class="analysis-category">
+            <h3 class="category-header">リズムと動き</h3>
+            <div class="category-grid">
+                <div class="analysis-item">
+                    <div class="label">ダンス性</div>
+                    <div class="value">${(analysisData.danceability * 100).toFixed(0)}%</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">アコースティック度</div>
+                    <div class="value">${(analysisData.acousticness * 100).toFixed(0)}%</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">アタック強度</div>
+                    <div class="value">${analysisData.attack_strength ? analysisData.attack_strength.toFixed(3) : '不明'}</div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // カテゴリーヘッダー: 楽曲構造
+    analysisHTML += `
+        <div class="analysis-category">
+            <h3 class="category-header">楽曲構造</h3>
+            <div class="category-grid">
+                <div class="analysis-item">
+                    <div class="label">セクション数</div>
+                    <div class="value">${analysisData.sections}</div>
+                </div>
+                <div class="analysis-item">
+                    <div class="label">繰り返し度合い</div>
+                    <div class="value">${analysisData.chorus_likelihood ? (analysisData.chorus_likelihood * 100).toFixed(0) + '%' : '不明'}</div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // カテゴリーヘッダー: 楽器検出
+    analysisHTML += `
+        <div class="analysis-category">
+            <h3 class="category-header">楽器検出</h3>
             <div class="instruments-chart">
     `;
     

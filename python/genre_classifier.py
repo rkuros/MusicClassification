@@ -478,13 +478,46 @@ if not USE_MOCK:
         """
         debug_print("Analyzing audio in detail")
         try:
+            #===== 基本音楽特性 =====
+            
             # テンポ（BPM）推定
-            tempo, _ = librosa.beat.beat_track(y=y, sr=sr)
+            tempo, beats = librosa.beat.beat_track(y=y, sr=sr)
             # NumPy 2.0互換: 配列から要素を取り出してからfloatに変換
             if hasattr(tempo, '__len__') and len(tempo) > 0:
                 tempo = float(tempo[0])
             else:
                 tempo = float(tempo)
+            
+            # ビート強度を計算
+            onset_env = librosa.onset.onset_strength(y=y, sr=sr)
+            pulse = librosa.beat.plp(onset_envelope=onset_env, sr=sr)
+            beat_strength = float(np.mean(pulse))
+            
+            # テンポ安定性（ビート間隔のばらつき）
+            if len(beats) > 1:
+                beat_intervals = np.diff(beats)
+                tempo_stability = 1.0 - min(float(np.std(beat_intervals) / np.mean(beat_intervals)), 1.0)
+            else:
+                tempo_stability = 0.5  # デフォルト値
+            
+            # 拍子推定（簡易版：強拍の間隔から4/4, 3/4などを推定）
+            onset_envelope = librosa.onset.onset_strength(y=y, sr=sr)
+            _, beat_frames = librosa.beat.beat_track(onset_envelope=onset_envelope, sr=sr)
+            if len(beat_frames) > 4:
+                # 強拍検出（スペクトル強度に基づく簡易的な方法）
+                onset_strength = onset_envelope[beat_frames]
+                # 一定の間隔（4拍子か3拍子かなど）で強拍が来るかを確認
+                if len(onset_strength) > 8:
+                    four_pattern = np.mean([onset_strength[i] for i in range(0, len(onset_strength) - 4, 4)])
+                    three_pattern = np.mean([onset_strength[i] for i in range(0, len(onset_strength) - 3, 3)])
+                    if four_pattern > three_pattern:
+                        time_signature = "4/4"
+                    else:
+                        time_signature = "3/4"
+                else:
+                    time_signature = "不明"
+            else:
+                time_signature = "不明"
             
             # キー推定
             chroma = librosa.feature.chroma_cqt(y=y, sr=sr)
@@ -493,7 +526,7 @@ if not USE_MOCK:
             keys = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
             key = keys[key_index]
             
-            # メジャー/マイナー判定（簡易版）
+            # メジャー/マイナー判定
             major_profile = np.array([1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1])
             minor_profile = np.array([1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0])
             
@@ -502,26 +535,86 @@ if not USE_MOCK:
             minor_corrs = [np.corrcoef(np.roll(minor_profile, i), key_indices)[0, 1] for i in range(12)]
             
             # 最も相関の高いモードを選択
-            if max(major_corrs) > max(minor_corrs):
+            max_major_corr = max(major_corrs)
+            max_minor_corr = max(minor_corrs)
+            if max_major_corr > max_minor_corr:
                 mode = "major"
+                key_confidence = float(max_major_corr)
             else:
                 mode = "minor"
+                key_confidence = float(max_minor_corr)
+            
+            #===== 音量とダイナミクス =====
+            
+            # 音量分析
+            rms_values = librosa.feature.rms(y=y)[0]
+            mean_volume = float(np.mean(rms_values))
+            max_volume = float(np.max(rms_values))
             
             # エネルギー計算
-            energy = librosa.feature.rms(y=y).mean()
-            energy = float(energy) / 0.1  # 正規化（典型的なRMS値に基づく）
+            energy = float(mean_volume) / 0.1  # 正規化（典型的なRMS値に基づく）
             energy = min(max(energy, 0.0), 1.0)  # 0〜1の範囲に収める
             
+            # ダイナミックレンジ（音量の変化幅）
+            if max_volume > 0:
+                dynamic_range = float(np.std(rms_values) / max_volume)
+            else:
+                dynamic_range = 0.0
+                
+            # 音量変化率（音量の時間的変化）
+            volume_changes = np.abs(np.diff(rms_values))
+            volume_change_rate = float(np.mean(volume_changes) / (mean_volume + 1e-6))
+            
+            #===== スペクトル特性 =====
+            
+            # スペクトル特性
+            spectral_centroid = float(librosa.feature.spectral_centroid(y=y, sr=sr).mean())
+            spectral_bandwidth = float(librosa.feature.spectral_bandwidth(y=y, sr=sr).mean())
+            spectral_rolloff = float(librosa.feature.spectral_rolloff(y=y, sr=sr).mean())
+            spectral_flatness = float(librosa.feature.spectral_flatness(y=y).mean())
+            zero_crossing_rate = float(librosa.feature.zero_crossing_rate(y).mean())
+            
+            # 音色の明るさ指標（高周波成分の比率）
+            # 8kHz以上の周波数成分の割合を計算
+            stft = np.abs(librosa.stft(y))
+            freqs = librosa.fft_frequencies(sr=sr)
+            high_freq_idx = np.where(freqs >= 8000)[0]
+            if len(high_freq_idx) > 0 and stft.sum() > 0:
+                brightness = float(stft[high_freq_idx].sum() / stft.sum())
+            else:
+                brightness = 0.0
+            
+            # 調和性（倍音構造の強さ）
+            harmonic, percussive = librosa.decompose.hpss(y)
+            if np.sum(np.abs(y)) > 0:
+                harmonicity = float(np.sum(np.abs(harmonic)) / np.sum(np.abs(y)))
+            else:
+                harmonicity = 0.5
+            
+            # 音の粗さ（不協和度）- 簡易版
+            roughness = 1.0 - harmonicity
+            
+            #===== リズムと時間特性 =====
+            
             # ダンス性（リズムの規則性に基づく）
-            onset_env = librosa.onset.onset_strength(y=y, sr=sr)
-            pulse = librosa.beat.plp(onset_envelope=onset_env, sr=sr)
-            danceability = np.mean(pulse) * 0.5  # スケール調整
-            danceability = min(max(danceability, 0.0), 1.0)
+            danceability = min(max(float(np.mean(pulse)) * 0.5, 0.0), 1.0)
+            
+            # アタック特性（音の立ち上がりの強さ）
+            # オンセット（音の始まり）の強度を計算
+            onset_strength = librosa.onset.onset_strength(y=y, sr=sr)
+            onset_times = librosa.times_like(onset_strength, sr=sr)
+            peaks = librosa.util.peak_pick(onset_strength, 3, 3, 3, 5, 0.5, 10)
+            if len(peaks) > 0:
+                attack_strength = float(np.mean(onset_strength[peaks]))
+            else:
+                attack_strength = 0.0
             
             # アコースティック度（スペクトル特性に基づく）
             spectral_contrast = librosa.feature.spectral_contrast(y=y, sr=sr)
-            acousticness = 1.0 - (np.mean(spectral_contrast[1:]) / 50.0)  # 高域のコントラストが低いほどアコースティック
+            acousticness = 1.0 - (float(np.mean(spectral_contrast[1:])) / 50.0)  # 高域のコントラストが低いほどアコースティック
             acousticness = min(max(acousticness, 0.0), 1.0)
+            
+            #===== 構造分析 =====
             
             # セクション推定
             mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
@@ -542,7 +635,14 @@ if not USE_MOCK:
                 sections = len(filtered_boundaries) + 1
             else:
                 sections = 1
+            
+            # セクション内の繰り返しパターン検出（コーラス検出の簡易版）
+            # 類似した領域のカウント
+            similarity_matrix = librosa.segment.recurrence_matrix(mfccs, mode='affinity')
+            chorus_likelihood = float(np.mean(similarity_matrix))  # 繰り返しの多さを示す値
                 
+            #===== 楽器推定 =====
+            
             # 楽器推定（簡易版）
             instruments = {
                 "ピアノ": 0.0,
@@ -553,27 +653,20 @@ if not USE_MOCK:
                 "ボーカル": 0.0
             }
             
-            # スペクトル特性から簡易的に楽器の存在確率を推定
-            spectral_centroid = librosa.feature.spectral_centroid(y=y, sr=sr).mean()
-            spectral_bandwidth = librosa.feature.spectral_bandwidth(y=y, sr=sr).mean()
-            spectral_flatness = librosa.feature.spectral_flatness(y=y).mean()
-            
             # ドラムの検出
-            percussive = librosa.effects.percussive(y)
-            drums_strength = librosa.feature.rms(y=percussive).mean() / librosa.feature.rms(y=y).mean()
+            drums_strength = float(librosa.feature.rms(y=percussive).mean() / librosa.feature.rms(y=y).mean())
             instruments["ドラム"] = min(max(drums_strength * 1.5, 0.0), 1.0)
             
             # ボーカルの検出
-            harmonic = librosa.effects.harmonic(y)
             melspec = librosa.feature.melspectrogram(y=harmonic, sr=sr)
-            vocal_range = np.mean(melspec[30:70, :]) / np.mean(melspec)  # ボーカル周波数帯の強さ
+            vocal_range = float(np.mean(melspec[30:70, :]) / np.mean(melspec))  # ボーカル周波数帯の強さ
             instruments["ボーカル"] = min(max(vocal_range * 2.0 - 0.3, 0.0), 1.0)
             
             # ベースの検出
-            bass_range = np.mean(melspec[:20, :]) / np.mean(melspec)
+            bass_range = float(np.mean(melspec[:20, :]) / np.mean(melspec))
             instruments["ベース"] = min(max(bass_range * 2.0 - 0.2, 0.0), 1.0)
             
-            # ギター/ピアノ/シンセの推定（簡易的）
+            # ギター/ピアノ/シンセの推定
             if spectral_flatness > 0.01:  # シンセの特徴
                 instruments["シンセサイザー"] = min(spectral_flatness * 50, 1.0)
             
@@ -583,14 +676,44 @@ if not USE_MOCK:
             if 800 < spectral_centroid < 2500:
                 instruments["ギター"] = 0.6
             
+            # すべての分析結果をまとめる
             return {
+                # 基本音楽情報
                 "tempo": tempo,
+                "beat_strength": beat_strength,
+                "tempo_stability": tempo_stability,
+                "time_signature": time_signature,
                 "key": f"{key} {mode}",
+                "key_confidence": key_confidence,
+                
+                # 音量とダイナミクス
+                "mean_volume": mean_volume,
+                "max_volume": max_volume, 
+                "dynamic_range": dynamic_range,
+                "volume_change_rate": volume_change_rate,
                 "energy": energy,
+                
+                # スペクトル特性
+                "spectral_centroid": spectral_centroid,
+                "spectral_bandwidth": spectral_bandwidth,
+                "spectral_rolloff": spectral_rolloff,
+                "spectral_flatness": spectral_flatness,
+                "zero_crossing_rate": zero_crossing_rate,
+                "brightness": brightness,
+                "harmonicity": harmonicity,
+                "roughness": roughness,
+                
+                # リズムと動き
                 "danceability": danceability,
+                "attack_strength": attack_strength,
                 "acousticness": acousticness,
-                "instruments": instruments,
-                "sections": sections
+                
+                # 構造
+                "sections": sections,
+                "chorus_likelihood": chorus_likelihood,
+                
+                # 楽器
+                "instruments": instruments
             }
             
         except Exception as e:

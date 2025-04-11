@@ -177,7 +177,7 @@ section h2 {
 /* 詳細分析 */
 .analysis-details {
     margin: 20px 0;
-    padding: 15px;
+    padding: 20px;
     background-color: #f8f9fa;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -189,6 +189,44 @@ section h2 {
     margin-bottom: 15px;
 }
 
+/* カテゴリー別スタイル */
+.analysis-category {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.analysis-category:last-child {
+    margin-bottom: 0;
+}
+
+.category-header {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ecf0f1;
+    position: relative;
+}
+
+.category-header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 50px;
+    height: 3px;
+    background-color: #3498db;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 12px;
+}
+
 .analysis-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -196,21 +234,28 @@ section h2 {
 }
 
 .analysis-item {
-    background-color: #fff;
-    padding: 12px;
+    background-color: #f9f9f9;
+    padding: 10px 12px;
     border-radius: 6px;
-    border-left: 4px solid #3498db;
+    border-left: 3px solid #3498db;
+    transition: transform 0.2s;
+}
+
+.analysis-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .analysis-item .label {
     color: #7f8c8d;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     margin-bottom: 5px;
 }
 
 .analysis-item .value {
     font-weight: bold;
     color: #2c3e50;
+    font-size: 1.05rem;
 }
 
 /* 楽器分析の特別スタイル */
