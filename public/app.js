@@ -10,6 +10,11 @@ const analysisLoading = document.getElementById('analysis-loading');
 const resultContainer = document.getElementById('result-container');
 const historyContainer = document.getElementById('history-container');
 const noHistoryMessage = document.getElementById('no-history-message');
+const waveformContainer = document.getElementById('waveform-container');
+const waveformCanvas = document.getElementById('waveform-canvas');
+const analysisDetails = document.getElementById('analysis-details');
+const analysisDescription = document.getElementById('analysis-description');
+const descriptionText = document.getElementById('description-text');
 
 // ジャンル名と対応するクラス名のマッピング
 const genreClasses = {
@@ -206,6 +211,142 @@ function fetchAndDisplayResults(analysisId) {
         });
 }
 
+// 波形データを描画
+function drawWaveform(waveformData) {
+    if (!waveformData || !waveformData.samples || waveformData.samples.length === 0) {
+        waveformContainer.style.display = 'none';
+        return;
+    }
+    
+    waveformContainer.style.display = 'block';
+    
+    const canvas = waveformCanvas;
+    const ctx = canvas.getContext('2d');
+    
+    // Canvasのサイズを設定（DPIに対応）
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.scale(dpr, dpr);
+    
+    const width = rect.width;
+    const height = rect.height;
+    
+    // 背景をクリア
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, width, height);
+    
+    const samples = waveformData.samples;
+    const step = Math.ceil(samples.length / width);
+    const amp = height / 2;
+    
+    // 中央線を描画
+    ctx.beginPath();
+    ctx.strokeStyle = '#ddd';
+    ctx.moveTo(0, height / 2);
+    ctx.lineTo(width, height / 2);
+    ctx.stroke();
+    
+    // 波形を描画
+    ctx.beginPath();
+    ctx.strokeStyle = '#3498db';
+    ctx.lineWidth = 2;
+    
+    for (let i = 0; i < width; i++) {
+        const sampleIndex = Math.floor(i * step);
+        const sample = samples[sampleIndex < samples.length ? sampleIndex : samples.length - 1];
+        const y = (0.5 + sample / 2) * height; // -1~1の値を0~heightにマッピング
+        
+        if (i === 0) {
+            ctx.moveTo(i, y);
+        } else {
+            ctx.lineTo(i, y);
+        }
+    }
+    
+    ctx.stroke();
+}
+
+// 詳細分析データの表示
+function displayAnalysisDetails(analysisData) {
+    if (!analysisData) {
+        analysisDetails.style.display = 'none';
+        return;
+    }
+    
+    analysisDetails.style.display = 'block';
+    
+    // 分析グリッドの内容を作成
+    const gridContainer = analysisDetails.querySelector('.analysis-grid');
+    
+    // 基本情報
+    let analysisHTML = `
+        <div class="analysis-item">
+            <div class="label">テンポ (BPM)</div>
+            <div class="value">${analysisData.tempo.toFixed(1)}</div>
+        </div>
+        <div class="analysis-item">
+            <div class="label">キー</div>
+            <div class="value">${analysisData.key}</div>
+        </div>
+        <div class="analysis-item">
+            <div class="label">エネルギー</div>
+            <div class="value">${(analysisData.energy * 100).toFixed(0)}%</div>
+        </div>
+        <div class="analysis-item">
+            <div class="label">ダンス性</div>
+            <div class="value">${(analysisData.danceability * 100).toFixed(0)}%</div>
+        </div>
+        <div class="analysis-item">
+            <div class="label">アコースティック度</div>
+            <div class="value">${(analysisData.acousticness * 100).toFixed(0)}%</div>
+        </div>
+        <div class="analysis-item">
+            <div class="label">セクション数</div>
+            <div class="value">${analysisData.sections}</div>
+        </div>
+    `;
+    
+    // 楽器情報を追加（別セクション）
+    analysisHTML += `
+        <div class="analysis-item" style="grid-column: 1 / -1;">
+            <div class="label">楽器検出</div>
+            <div class="instruments-chart">
+    `;
+    
+    // 楽器ごとのバーを追加
+    for (const [instrument, value] of Object.entries(analysisData.instruments)) {
+        const percent = Math.round(value * 100);
+        analysisHTML += `
+            <div class="instrument-bar">
+                <span class="instrument-name">${instrument}</span>
+                <div class="instrument-level-bg">
+                    <div class="instrument-level" style="width: ${percent}%"></div>
+                </div>
+            </div>
+        `;
+    }
+    
+    analysisHTML += `
+            </div>
+        </div>
+    `;
+    
+    gridContainer.innerHTML = analysisHTML;
+}
+
+// 総合的な説明の表示
+function displayDescription(description) {
+    if (!description) {
+        analysisDescription.style.display = 'none';
+        return;
+    }
+    
+    analysisDescription.style.display = 'block';
+    descriptionText.textContent = description;
+}
+
 // 分析結果の表示
 function displayResults(result) {
     analysisLoading.style.display = 'none';
@@ -239,6 +380,21 @@ function displayResults(result) {
     `;
     
     resultContainer.innerHTML = resultHTML;
+    
+    // 波形データの描画
+    if (result.waveform) {
+        drawWaveform(result.waveform);
+    }
+    
+    // 詳細分析の表示
+    if (result.analysis) {
+        displayAnalysisDetails(result.analysis);
+    }
+    
+    // 総合的な説明の表示
+    if (result.description) {
+        displayDescription(result.description);
+    }
 }
 
 // 履歴への追加

@@ -81,6 +81,24 @@ const analysisSchema = new mongoose.Schema({
         name: String,
         confidence: Number
     }],
+    // 波形データ
+    waveform: {
+        samples: [Number],
+        sampleRate: Number,
+        duration: Number
+    },
+    // 詳細分析情報
+    analysis: {
+        tempo: Number,
+        key: String,
+        energy: Number,
+        danceability: Number,
+        acousticness: Number,
+        instruments: Object,
+        sections: Number
+    },
+    // 総合的な音楽説明
+    description: String,
     timestamp: { 
         type: Date, 
         default: Date.now 
@@ -206,6 +224,9 @@ app.get('/api/analysis/:analysisId/result', async (req, res) => {
             analysisId: analysis.analysisId,
             fileName: analysis.fileName,
             genres: analysis.genres,
+            waveform: analysis.waveform,
+            analysis: analysis.analysis,
+            description: analysis.description,
             timestamp: analysis.timestamp
         });
     } catch (error) {
@@ -216,12 +237,28 @@ app.get('/api/analysis/:analysisId/result', async (req, res) => {
     }
 });
 
+// ファイル削除ヘルパー関数（グローバルスコープに配置）
+async function deleteUploadedFile(filePath) {
+    try {
+        // ファイルが存在するか確認
+        if (fs.existsSync(filePath)) {
+            await fs.promises.unlink(filePath);
+            console.log(`ファイルを削除しました: ${filePath}`);
+        } else {
+            console.log(`ファイルが見つかりません: ${filePath}`);
+        }
+    } catch (error) {
+        console.error(`ファイル削除エラー: ${filePath}`, error);
+    }
+}
+
 // 分析プロセスの開始
 function startAnalysisProcess(analysisId, filePath) {
     // 分析ステータスを更新
     Analysis.findOneAndUpdate(
         { analysisId: analysisId },
-        { status: 'processing' }
+        { status: 'processing' },
+        { new: true } // 更新後のドキュメントを返す
     ).exec();
 
     // Pythonスクリプトを実行
@@ -239,9 +276,16 @@ function startAnalysisProcess(analysisId, filePath) {
                 { analysisId: analysisId },
                 {
                     status: 'completed',
-                    genres: result.genres
-                }
+                    genres: result.genres.genres || result.genres,
+                    waveform: result.genres.waveform,
+                    analysis: result.genres.analysis,
+                    description: result.genres.description
+                },
+                { new: true } // 更新後のドキュメントを返す
             ).exec();
+            
+            // 分析が完了したらアップロードされたファイルを削除
+            await deleteUploadedFile(filePath);
         } catch (error) {
             console.error('Pythonスクリプトの出力解析エラー:', error);
             updateAnalysisFailed(analysisId, 'Pythonスクリプトの出力解析に失敗しました');
@@ -250,8 +294,13 @@ function startAnalysisProcess(analysisId, filePath) {
     
     // エラー発生時の処理
     pythonProcess.stderr.on('data', (data) => {
-        console.error(`Python処理エラー: ${data}`);
-        updateAnalysisFailed(analysisId, data.toString());
+        const message = data.toString();
+        console.error(`Python処理エラー: ${message}`);
+        
+        // DEBUGプレフィックスのないメッセージのみをエラーとして扱う
+        if (!message.trim().startsWith('DEBUG:')) {
+            updateAnalysisFailed(analysisId, message);
+        }
     });
     
     // プロセス終了時の処理
@@ -261,6 +310,8 @@ function startAnalysisProcess(analysisId, filePath) {
             updateAnalysisFailed(analysisId, `Pythonプロセスが異常終了しました（コード: ${code}）`);
         }
     });
+    
+    // 削除：内側のファイル削除関数は削除（外側のグローバル関数を使用）
     
     // エラー処理
     pythonProcess.on('error', (error) => {
@@ -272,13 +323,19 @@ function startAnalysisProcess(analysisId, filePath) {
 // 分析失敗時の状態更新
 async function updateAnalysisFailed(analysisId, errorMessage) {
     try {
-        await Analysis.findOneAndUpdate(
+        const analysis = await Analysis.findOneAndUpdate(
             { analysisId: analysisId },
             {
                 status: 'failed',
                 error: errorMessage
-            }
+            },
+            { new: true } // 更新後のドキュメントを返す
         ).exec();
+        
+        // 分析が失敗した場合もファイルを削除
+        if (analysis && analysis.filePath) {
+            await deleteUploadedFile(analysis.filePath);
+        }
     } catch (err) {
         console.error('分析失敗状態更新エラー:', err);
     }
