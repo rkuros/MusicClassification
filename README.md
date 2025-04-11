@@ -91,6 +91,10 @@ MusicClassification/
   - Librosaによる音楽特徴量抽出（MFCC, スペクトル特性, テンポ, リズム特性など）
   - Scikit-learnの機械学習モデルによるジャンル分類
 
+  - Librosaによる音楽特徴量抽出（MFCC, スペクトル特性, テンポ, リズム特性など）
+  - Scikit-learnの機械学習モデルによるジャンル分類
+
 ## ライセンス
 
 MIT
+>>>>>>> f9e74ad (Implement music genre classification with MongoDB and Python analysis)
