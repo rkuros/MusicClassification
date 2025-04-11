@@ -87,15 +87,44 @@ const analysisSchema = new mongoose.Schema({
         sampleRate: Number,
         duration: Number
     },
-    // 詳細分析情報
+    // 詳細分析情報（拡張スキーマ）
     analysis: {
+        // 基本音楽情報
         tempo: Number,
+        beat_strength: Number,
+        tempo_stability: Number,
+        time_signature: String,
         key: String,
+        key_confidence: Number,
+        
+        // 音量とダイナミクス
+        mean_volume: Number,
+        max_volume: Number,
+        dynamic_range: Number,
+        volume_change_rate: Number,
         energy: Number,
+        
+        // スペクトル特性
+        spectral_centroid: Number,
+        spectral_bandwidth: Number,
+        spectral_rolloff: Number,
+        spectral_flatness: Number,
+        zero_crossing_rate: Number,
+        brightness: Number,
+        harmonicity: Number,
+        roughness: Number,
+        
+        // リズムと動き
         danceability: Number,
+        attack_strength: Number,
         acousticness: Number,
-        instruments: Object,
-        sections: Number
+        
+        // 構造
+        sections: Number,
+        chorus_likelihood: Number,
+        
+        // 楽器
+        instruments: Object
     },
     // 総合的な音楽説明
     description: String,
@@ -282,6 +311,19 @@ function startAnalysisProcess(analysisId, filePath) {
                 // 完全な出力が揃ったところでJSON解析を実行
                 const result = JSON.parse(stdoutBuffer);
                 
+                // デバッグ出力
+                fs.writeFileSync(
+                    path.join(__dirname, '../debug_output.txt'),
+                    JSON.stringify(result, null, 2)
+                );
+                
+                // Python側から受け取ったデータを検証
+                const analysisData = result.genres.analysis || {};
+                console.log('受信した分析データのキー:', Object.keys(analysisData));
+                
+                // 保存する前にデータの整形と検証
+                const processedAnalysis = processAnalysisData(analysisData);
+                
                 // 分析結果を保存
                 await Analysis.findOneAndUpdate(
                     { analysisId: analysisId },
@@ -289,7 +331,7 @@ function startAnalysisProcess(analysisId, filePath) {
                         status: 'completed',
                         genres: result.genres.genres || result.genres,
                         waveform: result.genres.waveform,
-                        analysis: result.genres.analysis,
+                        analysis: processedAnalysis,
                         description: result.genres.description
                     },
                     { new: true } // 更新後のドキュメントを返す
@@ -356,6 +398,49 @@ async function updateAnalysisFailed(analysisId, errorMessage) {
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
 });
+
+// 分析データの処理と整形
+function processAnalysisData(data) {
+    if (!data) return {};
+    
+    // 結果オブジェクト
+    const processedData = {};
+    
+    // データの型変換と検証（数値項目）
+    const numericFields = [
+        'tempo', 'beat_strength', 'tempo_stability', 'key_confidence',
+        'mean_volume', 'max_volume', 'dynamic_range', 'volume_change_rate', 'energy',
+        'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'spectral_flatness',
+        'zero_crossing_rate', 'brightness', 'harmonicity', 'roughness',
+        'danceability', 'attack_strength', 'acousticness',
+        'sections', 'chorus_likelihood'
+    ];
+    
+    numericFields.forEach(field => {
+        if (field in data) {
+            // NaNやnullの場合は除外
+            const value = parseFloat(data[field]);
+            if (!isNaN(value) && value !== null) {
+                processedData[field] = value;
+            }
+        }
+    });
+    
+    // 文字列項目
+    const stringFields = ['key', 'time_signature'];
+    stringFields.forEach(field => {
+        if (field in data && data[field]) {
+            processedData[field] = String(data[field]);
+        }
+    });
+    
+    // 楽器データの処理
+    if (data.instruments && typeof data.instruments === 'object') {
+        processedData.instruments = { ...data.instruments };
+    }
+    
+    return processedData;
+}
 
 // アプリケーションサーバーのセットアップと起動関数
 function setupAppServer() {
