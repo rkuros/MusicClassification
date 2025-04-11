@@ -211,6 +211,9 @@ function displayResults(result) {
     analysisLoading.style.display = 'none';
     resultContainer.style.display = 'block';
     
+    // 属性があるかどうかを確認
+    const hasAttributes = result.attributes && result.attributes.length > 0;
+    
     // 結果カードの作成
     const resultHTML = `
         <div class="genre-card">
@@ -219,22 +222,55 @@ function displayResults(result) {
                 <p>ファイル名: ${result.fileName}</p>
                 <p>分析日時: ${new Date(result.timestamp).toLocaleString('ja-JP')}</p>
             </div>
-            ${result.genres.map((genre, index) => {
-                const genreClass = genreClasses[genre.name.toLowerCase()] || 'pop';
-                const confidencePercent = Math.round(genre.confidence * 100);
-                return `
-                    <div class="genre-result">
-                        <div class="genre-info">
-                            <span class="genre-name">${genre.name}</span>
-                            <span class="genre-confidence">${confidencePercent}%</span>
-                        </div>
-                        <div class="confidence-bar">
-                            <div class="confidence-level ${genreClass}" 
-                                 style="width: ${confidencePercent}%"></div>
-                        </div>
+            
+            <div class="results-container">
+                <div class="genres-container">
+                    <h4>ジャンル</h4>
+                    ${result.genres.map((genre, index) => {
+                        const genreClass = genreClasses[genre.name.toLowerCase()] || 'pop';
+                        const confidencePercent = Math.round(genre.confidence * 100);
+                        return `
+                            <div class="genre-result">
+                                <div class="genre-info">
+                                    <span class="genre-name">${genre.name}</span>
+                                    <span class="genre-confidence">${confidencePercent}%</span>
+                                </div>
+                                <div class="confidence-bar">
+                                    <div class="confidence-level ${genreClass}" 
+                                         style="width: ${confidencePercent}%"></div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+                
+                ${hasAttributes ? `
+                    <div class="attributes-container">
+                        <h4>音楽特性</h4>
+                        ${result.attributes.map((attr, index) => {
+                            // 属性に応じてクラスを決定
+                            let attrClass = 'pop'; // デフォルト
+                            if (attr.name.includes('energy')) attrClass = 'electronic';
+                            else if (attr.name.includes('tempo')) attrClass = 'rock';
+                            else if (attr.name.includes('acoustic')) attrClass = 'folk';
+                            
+                            const confidencePercent = Math.round(attr.confidence * 100);
+                            return `
+                                <div class="attribute-result">
+                                    <div class="attribute-info">
+                                        <span class="attribute-name">${attr.name}</span>
+                                        <span class="attribute-confidence">${confidencePercent}%</span>
+                                    </div>
+                                    <div class="confidence-bar">
+                                        <div class="confidence-level ${attrClass}" 
+                                             style="width: ${confidencePercent}%"></div>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')}
                     </div>
-                `;
-            }).join('')}
+                ` : ''}
+            </div>
         </div>
     `;
     

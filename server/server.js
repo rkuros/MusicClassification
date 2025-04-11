@@ -81,6 +81,10 @@ const analysisSchema = new mongoose.Schema({
         name: String,
         confidence: Number
     }],
+    attributes: [{  // 音楽属性の配列を追加
+        name: String,
+        confidence: Number
+    }],
     timestamp: { 
         type: Date, 
         default: Date.now 
@@ -186,7 +190,7 @@ app.get('/api/analysis/:analysisId/status', async (req, res) => {
     }
 });
 
-// 分析結果取得エンドポイント
+    // 分析結果取得エンドポイント
 app.get('/api/analysis/:analysisId/result', async (req, res) => {
     try {
         const analysisId = req.params.analysisId;
@@ -206,6 +210,7 @@ app.get('/api/analysis/:analysisId/result', async (req, res) => {
             analysisId: analysis.analysisId,
             fileName: analysis.fileName,
             genres: analysis.genres,
+            attributes: analysis.attributes || [], // 新しい属性フィールド（存在しない場合は空配列）
             timestamp: analysis.timestamp
         });
     } catch (error) {
@@ -239,7 +244,8 @@ function startAnalysisProcess(analysisId, filePath) {
                 { analysisId: analysisId },
                 {
                     status: 'completed',
-                    genres: result.genres
+                    genres: result.genres,
+                    attributes: result.attributes || [] // 属性情報も保存（存在しない場合は空配列）
                 }
             ).exec();
         } catch (error) {
