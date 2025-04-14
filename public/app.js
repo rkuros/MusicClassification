@@ -120,9 +120,14 @@ function handleFileUpload(file) {
     // 前回の解析結果をすべて非表示にする
     clearPreviousResults();
     
+    // 選択された分析手法を取得
+    const analysisMethod = document.querySelector('input[name="analysis-method"]:checked').value;
+    console.log(`選択された分析手法: ${analysisMethod}`);
+    
     // FormDataの作成
     const formData = new FormData();
     formData.append('audioFile', file);
+    formData.append('method', analysisMethod);
     
     // XHRでサーバーにアップロード
     const xhr = new XMLHttpRequest();

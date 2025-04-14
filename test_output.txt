@@ -1,0 +1,58 @@
+テスト: ../Unnatural Attraction.mp3 の分析を開始します
+
+===== デバッグ情報（stderr） =====
+DEBUG: Advanced Genre Classifier started at 2025-04-14 18:18:17.023062
+DEBUG: Importing libraries for advanced analysis...
+Trying to import librosa...
+DEBUG: Librosa imported successfully, version: 0.11.0
+Librosa imported successfully, version: 0.11.0
+Trying to import sklearn modules...
+Trying to import joblib...
+sklearn and joblib imported successfully
+DEBUG: PyTorch not available, will use RandomForest only
+DEBUG: All required libraries for advanced analysis successfully imported.
+必要なライブラリがインストールされています。高度分析モードで実行します
+DEBUG: Processing file: ../Unnatural Attraction.mp3
+Mode: NORMAL MODE
+Processing file: ../Unnatural Attraction.mp3
+Analysis ID: test_id
+Method: advanced
+DEBUG: Advanced analysis request received for: ../Unnatural Attraction.mp3
+DEBUG: Starting advanced analysis for: ../Unnatural Attraction.mp3
+DEBUG: Audio loaded successfully. Sample rate: 22050, Duration: 30.00s
+DEBUG: Extracting advanced features...
+DEBUG: Final feature count: 60
+DEBUG: Predicting genre...
+Loading model from /Users/rkuros/Documents/Repository/MusicClassification/python/advanced_model.pkl (139289 bytes)
+Loading scaler from /Users/rkuros/Documents/Repository/MusicClassification/python/advanced_scaler.pkl (2055 bytes)
+DEBUG: Predicting with RandomForest model...
+DEBUG: Starting advanced audio analysis for: ../Unnatural Attraction.mp3
+DEBUG: Detecting tempo with advanced algorithm...
+DEBUG: Detecting key with harmonic-percussive source separation...
+DEBUG: Calculating energy with spectral features...
+DEBUG: Detecting instruments with spectral features...
+DEBUG: Calculating danceability...
+DEBUG: Detecting sections with novelty detection...
+Outputting JSON result to stdout
+Script execution completed successfully.
+
+
+===== JSON出力（stdout） =====
+JSON出力の長さ: 25114 文字
+JSON解析成功!
+すべての必須キーが存在します
+
+ジャンル分類結果:
+  - rock: 0.13
+  - blues: 0.12
+  - soul: 0.11
+
+分析結果:
+  - テンポ: 112.3 BPM
+  - キー: E minor
+  - エネルギー: 0.45
+  - ダンス性: 0.52
+
+テスト完了: 出力フォーマットは正常です
+
+テスト成功: 分類器は正常に動作しています。

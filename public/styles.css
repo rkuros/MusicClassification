@@ -79,6 +79,45 @@ section h2 {
     text-align: center;
 }
 
+.analysis-method {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.analysis-method p {
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.radio-group label:hover {
+    background-color: #f0f8ff;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 6px;
+}
+
+.radio-group input[type="radio"]:checked + span {
+    color: #3498db;
+    font-weight: 500;
+}
+
 #upload-btn {
     background-color: #3498db;
     color: white;

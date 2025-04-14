@@ -193,18 +193,23 @@ app.post('/api/upload', upload.single('audioFile'), async (req, res) => {
 
         const analysisId = uuidv4();
         
+        // 分析手法の取得 (standard または advanced)
+        const method = req.body.method === 'advanced' ? 'advanced' : 'standard';
+        console.log(`分析手法: ${method}`);
+        
         // 分析レコードを作成
         const newAnalysis = {
             analysisId: analysisId,
             fileName: req.file.originalname,
             filePath: req.file.path,
-            status: 'pending'
+            status: 'pending',
+            method: method // 分析手法を保存
         };
         
         await memoryStore.save(analysisId, newAnalysis);
 
         // 分析プロセスを開始
-        startAnalysisProcess(analysisId, req.file.path);
+        startAnalysisProcess(analysisId, req.file.path, method);
         
         res.status(200).json({
             message: 'ファイルがアップロードされました',
@@ -289,16 +294,24 @@ async function deleteUploadedFile(filePath) {
 }
 
 // 分析プロセスの開始
-async function startAnalysisProcess(analysisId, filePath) {
+async function startAnalysisProcess(analysisId, filePath, method = 'standard') {
     // 分析ステータスを更新
     await memoryStore.findOneAndUpdate(
         { analysisId: analysisId },
         { status: 'processing' }
     );
 
-    // Pythonスクリプトを実行
-    const pythonScript = path.join(__dirname, '../python/genre_classifier.py');
+    // 指定された分析手法に基づいてPythonスクリプトを選択
+    let pythonScript;
+    if (method === 'advanced') {
+        pythonScript = path.join(__dirname, '../python/advanced_classifier.py');
+        console.log('高度分析モードで実行します');
+    } else {
+        pythonScript = path.join(__dirname, '../python/standard_classifier.py');
+        console.log('標準分析モードで実行します');
+    }
     
+    console.log(`分析実行: ${pythonScript} ${filePath} ${analysisId} ${method}`);
     const pythonProcess = spawn('python3', [pythonScript, filePath, analysisId]);
     
     // Pythonからの出力を蓄積するバッファ
@@ -323,31 +336,46 @@ async function startAnalysisProcess(analysisId, filePath) {
                     JSON.stringify(result, null, 2)
                 );
                 
-                // Python側から受け取ったデータを検証
-                const analysisData = result.genres.analysis || {};
-                console.log('受信した分析データのキー:', Object.keys(analysisData));
+                // エラーオブジェクトが返された場合の処理
+                if (result.error === true) {
+                    console.error('Python分析エラー:', result.message);
+                    return updateAnalysisFailed(analysisId, result.message);
+                }
                 
-                // 分析データをより詳細にログ出力
-                fs.writeFileSync(
-                    path.join(__dirname, '../analysis_data.txt'),
-                    JSON.stringify(analysisData, null, 2)
-                );
-                
-                // 保存する前にデータの整形と検証
-                const processedAnalysis = processAnalysisData(analysisData);
+                // デバッグ: 結果オブジェクトのキーを出力
+                console.log('解析結果のキー:', Object.keys(result));
                 
                 // 分析結果を保存
-                await memoryStore.findOneAndUpdate(
-                    { analysisId: analysisId },
-                    {
-                        status: 'completed',
-                        genres: result.genres.genres || result.genres,
-                        waveform: result.genres.waveform,
-                        analysis: result.genres.analysis,
-                        description: result.genres.description,
-                        timestamp: new Date()
-                    }
-                );
+                // 標準モードと高度モードで結果形式が微妙に異なる可能性があるため分岐
+                if (method === 'advanced') {
+                    // 高度分析モードの結果形式 - attributes フィールドのチェックを削除
+                    await memoryStore.findOneAndUpdate(
+                        { analysisId: analysisId },
+                        {
+                            status: 'completed',
+                            genres: result.genres || [],
+                            waveform: result.waveform || {},
+                            analysis: result.analysis || {},
+                            // attributesは存在する場合のみ設定
+                            ...(result.attributes && { attributes: result.attributes }),
+                            description: result.description || "",
+                            timestamp: new Date()
+                        }
+                    );
+                } else {
+                    // 標準分析モードの結果形式
+                    await memoryStore.findOneAndUpdate(
+                        { analysisId: analysisId },
+                        {
+                            status: 'completed',
+                            genres: result.genres,
+                            waveform: result.waveform,
+                            analysis: result.analysis,
+                            description: result.description,
+                            timestamp: new Date()
+                        }
+                    );
+                }
                 
                 // 分析が完了したらアップロードされたファイルを削除
                 await deleteUploadedFile(filePath);
@@ -368,8 +396,15 @@ async function startAnalysisProcess(analysisId, filePath) {
         const message = data.toString();
         console.error(`Python処理エラー: ${message}`);
         
-        // DEBUGプレフィックスのないメッセージのみをエラーとして扱う
-        if (!message.trim().startsWith('DEBUG:')) {
+        // 以下のメッセージはデバッグ情報なのでエラーとして扱わない
+        if (!message.trim().startsWith('DEBUG:') && 
+            !message.includes('Loading model') && 
+            !message.includes('Loading scaler') && 
+            !message.includes('Outputting JSON') && 
+            !message.includes('Script execution completed successfully') &&
+            !message.trim().startsWith('Trying to import') && 
+            !message.includes('imported successfully') &&
+            !message.includes('必要なライブラリ')) {
             updateAnalysisFailed(analysisId, message);
         }
     });
